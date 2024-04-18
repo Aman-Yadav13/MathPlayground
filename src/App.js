@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import MatchingGame from "./Components/NumberMatching/MatchingGame";
+import AdditionGame from "./Components/AdditionGame/AdditionGame";
+import Quiz from "./Components/QuizGame/quizgame";
+import MineGame from "./Components/MineGame/MineGame";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/number-matching" exact element={<MatchingGame />} />
+          <Route path="/addition-game" exact element={<AdditionGame />} />
+          <Route path="/quiz-game" exact element={<Quiz />} />
+          <Route path="/mine-game" exact element={<MineGame />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
